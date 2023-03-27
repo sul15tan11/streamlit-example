@@ -4,6 +4,8 @@ import math
 import pandas as pd
 import streamlit as st
 import openai
+import gradio
+
 openai.api_key = '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'
 
 """
@@ -17,12 +19,6 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
    
-
-import gradio
-
-
-#messages = [{"role": "system", "content": "You are a financial experts that specializes in real estate investment and negotiation"}]
-#messages = [{"role": "system", "content": "أنت مساعد للطلاب في جامعة الحدود الشمالية لتقديم المساعدة الأكاديمية في مجال علوم الحاسب"}]
 
 messages = [{"role": "system", "content": "You are a programming assistant for Northern Border University students. - Follow the user's requirements carefully & to the letter. - First think step-by-step - describe your plan for what to build in pseudocode in Arabic language, written out in great detail. - Then output the code in a single code block. - Minimize any other prose"}]
 
