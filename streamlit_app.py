@@ -25,11 +25,8 @@ In the meantime, below is an example of what you can do with just a few lines of
 st.title("🤖 chatBot : openAI GPT-3 + Streamlit")
 
 
-if 'generated' not in st.session_state:
-    st.session_state['generated'] = []
+article_text = st.text_area(“Enter your scientific texts to summarize”)
 
-if 'past' not in st.session_state:
-    st.session_state['past'] = []
 
 
 def get_text():
