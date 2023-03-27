@@ -6,7 +6,7 @@ import streamlit as st
 import openai
 import gradio
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 """
 # أهلا بك في المساعد الشخصي لطلاب جامعة الحدود الشمالية!
