@@ -19,19 +19,44 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
    
+def generate_response(prompt):
+    completions = openai.Completion.create (
+        engine="text-davinci-003",
+        prompt=prompt,
+        max_tokens=1024,
+        n=1,
+        stop=None,
+        temperature=0.5,
+    )
 
-import streamlit as st
-import streamlit.components.v1 as components
-import requests
+    message = completions.choices[0].text
+    return message
 
-def theTweet(tweet_url):
-    api = "https://publish.twitter.com/oembed?url={}".format(tweet_url)
-    response = requests.get(api)
-    res = response.json()["html"]
-    return res
 
-input = st.text_input("Enter your tweet url")
-if input:
-    res = theTweet(input)
-    st.write(res)
-    components.html(res,height= 700)
+st.title("🤖 chatBot : openAI GPT-3 + Streamlit")
+
+
+if 'generated' not in st.session_state:
+    st.session_state['generated'] = []
+
+if 'past' not in st.session_state:
+    st.session_state['past'] = []
+
+
+def get_text():
+    input_text = st.text_input("You: ","Hello, how are you?", key="input")
+    return input_text 
+
+
+user_input = get_text()
+
+if user_input:
+    output = generate_response(user_input)
+    st.session_state.past.append(user_input)
+    st.session_state.generated.append(output)
+
+if st.session_state['generated']:
+
+    for i in range(len(st.session_state['generated'])-1, -1, -1):
+        message(st.session_state["generated"][i], key=str(i))
+        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
