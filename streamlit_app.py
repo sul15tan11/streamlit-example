@@ -21,19 +21,16 @@ In the meantime, below is an example of what you can do with just a few lines of
    
 
 messages = [{"role": "system", "content": "You are a programming assistant for Northern Border University students. - Follow the user's requirements carefully & to the letter. - First think step-by-step - describe your plan for what to build in pseudocode in Arabic language, written out in great detail. - Then output the code in a single code block. - Minimize any other prose"}]
-
-
-
-def CustomChatGPT(user_input):
-    messages.append({"role": "user", "content": user_input})
-    response = openai.ChatCompletion.create(
-        model = "gpt-3.5-turbo",
-        messages = messages
-    )
-    ChatGPT_reply = response["choices"][0]["message"]["content"]
-    messages.append({"role": "assistant", "content": ChatGPT_reply})
-    return ChatGPT_reply
-
-demo = gradio.Interface(fn=CustomChatGPT, inputs = "text", outputs = "text", title = "مساعد للطلاب في البرمجة - جامعة الحدود الشمالية")
-
-demo.launch(share=True)
+while True:
+    message = input("User : ")
+    if message:
+        messages.append(
+            {"role": "user", "content": message},
+        )
+        chat = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo", messages=messages
+        )
+    
+    reply = chat.choices[0].message.content
+    print(f"ChatGPT: {reply}")
+    messages.append({"role": "assistant", "content": reply})
