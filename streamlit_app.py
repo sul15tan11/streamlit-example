@@ -18,16 +18,8 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
-   
-def generate_response(prompt):
-    completions = openai.Completion.create (
-        engine="text-davinci-003",
-        prompt=prompt
-       
-    )
 
-    message = completions.choices[0].text
-    return message
+
 
 
 st.title("🤖 chatBot : openAI GPT-3 + Streamlit")
