@@ -57,4 +57,5 @@ while True:
     print(f"ChatGPT: {reply}")
     messages.append({"role": "assistant", "content": reply})
     
+st.title(reply)
 st.title("🤖 chatBot : openAI GPT-3 + Streamlit")
