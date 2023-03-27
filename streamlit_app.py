@@ -4,6 +4,7 @@ import math
 import pandas as pd
 import streamlit as st
 import openai
+openai.api_key = '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'
 
 """
 # Welcome to Streamlit!
