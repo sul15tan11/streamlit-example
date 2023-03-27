@@ -22,7 +22,7 @@ In the meantime, below is an example of what you can do with just a few lines of
 def generate_response(prompt):
     completions = openai.Completion.create (
         engine="text-davinci-003",
-        prompt=prompt,
+        prompt=prompt
        
     )
 
