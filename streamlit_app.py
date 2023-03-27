@@ -20,17 +20,18 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
    
 
-messages = [{"role": "system", "content": "You are a programming assistant for Northern Border University students. - Follow the user's requirements carefully & to the letter. - First think step-by-step - describe your plan for what to build in pseudocode in Arabic language, written out in great detail. - Then output the code in a single code block. - Minimize any other prose"}]
-while True:
-    message = input("User : ")
-    if message:
-        messages.append(
-            {"role": "user", "content": message},
-        )
-        chat = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo", messages=messages
-        )
-    
-    reply = chat.choices[0].message.content
-    print(f"ChatGPT: {reply}")
-    messages.append({"role": "assistant", "content": reply})
+import streamlit as st
+import streamlit.components.v1 as components
+import requests
+
+def theTweet(tweet_url):
+    api = "https://publish.twitter.com/oembed?url={}".format(tweet_url)
+    response = requests.get(api)
+    res = response.json()["html"]
+    return res
+
+input = st.text_input("Enter your tweet url")
+if input:
+    res = theTweet(input)
+    st.write(res)
+    components.html(res,height= 700)
