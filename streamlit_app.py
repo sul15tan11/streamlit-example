@@ -20,8 +20,7 @@ In the meantime, below is an example of what you can do with just a few lines of
 
     
 
-    
-    import gradio
+import gradio
 
 
 #messages = [{"role": "system", "content": "You are a financial experts that specializes in real estate investment and negotiation"}]
