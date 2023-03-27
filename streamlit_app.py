@@ -36,9 +36,9 @@ output_size = st.radio( label = "What kind of output do you want?",
 # First, we'll use an if statement to determine the desired output size 
 # and set the out_token variable accordingly:
 
-if output_size == “To-The-Point”:
+if output_size == "To-The-Point":
  out_token = 50
-elif output_size == “Concise”:
+elif output_size == 'Concise":
  out_token = 128
 else:
  out_token = 516
