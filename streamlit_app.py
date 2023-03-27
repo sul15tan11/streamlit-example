@@ -44,7 +44,7 @@ messages = [
 
 ]
 while True:
-    message = input("User : hi")
+    message = input("User :",user_input)
     if message:
         messages.append(
             {"role": "user", "content": message},
