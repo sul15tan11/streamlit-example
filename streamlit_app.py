@@ -9,7 +9,7 @@ import gradio
 openai.api_key = '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'
 
 """
-# Welcome to Streamlit!
+# أهلا بك في المساعد الشخصي لطلاب جامعة الحدود الشمالية!
 
 Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
 
