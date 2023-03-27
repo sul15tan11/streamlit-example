@@ -25,7 +25,7 @@ In the meantime, below is an example of what you can do with just a few lines of
 st.title("🤖 chatBot : openAI GPT-3 + Streamlit")
 
 
-article_text = st.text_area(“Enter your scientific texts to summarize”)
+article_text = st.text_area("Enter your scientific texts to summarize")
 
 
 
